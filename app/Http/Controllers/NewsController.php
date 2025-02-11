@@ -13,8 +13,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
-        // $news = News::latest()->get(); FOR GET THE LATEST NEWS TIMESTAMP
+        // $news = News::all();
+
+        // FOR GET THE LATEST NEWS TIMESTAMP
+        $news = News::latest()->limit(3)->get(); 
         return inertia('home', ['news' => $news]);
     }
 
